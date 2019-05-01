@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TransitionLayout">
+
+        <attr name="widthA" format="dimension">
+            <enum name="match_parent" value="-1" />
+            <enum name="wrap_content" value="-2" />
+        </attr>
+        <attr name="widthB" format="dimension"/>
+        <attr name="heightA" format="dimension"/>
+        <attr name="heightB" format="dimension"/>
+        <attr name="widthTransitionFactor" format="float"/>
+        <attr name="alphaTransitionFactor" format="float"/>
+        <attr name="heightTransitionFactor" format="float"/>
+        <attr name="alphaA" format="float"/>
+        <attr name="alphaB" format="float"/>
+        <attr name="marginBottomA" format="dimension"/>
+        <attr name="marginBottomB" format="dimension"/>
+        <attr name="anchor" format="integer">
+            <enum name="height" value="0"/>
+        </attr>
+    </declare-styleable>
+</resources>

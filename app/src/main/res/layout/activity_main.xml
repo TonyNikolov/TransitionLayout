@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fl_activity_main_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:windowBackground">
+
+    <com.futuristlabs.scrollingbehavior.TransitionLayout
+        android:id="@+id/fl_activity_main_header"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="?android:windowBackground"
+        app:anchor="height"
+        android:minHeight="@dimen/fl_min_height">
+
+        <com.futuristlabs.scrollingbehavior.TransitionLayout
+            android:id="@+id/view_activity_search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom"
+            android:background="@android:color/holo_red_dark"
+            app:heightA="60dp"
+            app:heightB="45dp"
+            app:widthA="match_parent"
+            app:widthB="250dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="25sp"
+                android:text="Searchhhhhhhhhhhhhhhhh"
+                android:background="@android:color/holo_orange_light"
+                android:layout_gravity="center_vertical"
+                app:heightA="50dp"
+                app:heightB="40dp"/>
+
+        </com.futuristlabs.scrollingbehavior.TransitionLayout>
+
+        <TextView
+            android:id="@+id/view_activity_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="60dp"
+            android:background="@android:color/holo_green_dark"
+            app:marginBottomA="60dp"
+            app:marginBottomB="45dp"
+            app:alphaA="1"
+            app:alphaB="0"
+            app:alphaTransitionFactor="1.75"
+            android:text="TitleeeTitleeeTitl\neeeTitleeeTitleeeTit\nleeeTitleeeTitleee"
+            android:textSize="22sp" />
+
+        <View
+            android:id="@+id/view_activity_right_icon"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end"
+            android:background="@android:color/holo_blue_light"
+            app:widthA="100dp"
+            app:widthB="50dp"
+            app:widthTransitionFactor="1.5" />
+    </com.futuristlabs.scrollingbehavior.TransitionLayout>
+
+
+    <com.futuristlabs.scrollingbehavior.ScrollingRecyclerView
+        android:id="@+id/rv_activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:visibility="visible" />
+
+</FrameLayout>
