@@ -20,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_gravity="bottom"
+            app:anchor="height"
             android:background="@android:color/holo_red_dark"
             app:heightA="60dp"
             app:heightB="45dp"
@@ -34,11 +35,11 @@
                 android:background="@android:color/holo_orange_light"
                 android:layout_gravity="center_vertical"
                 app:heightA="50dp"
-                app:heightB="40dp"/>
+                app:heightB="20dp"/>
 
         </com.futuristlabs.scrollingbehavior.TransitionLayout>
 
-        <TextView
+        <View
             android:id="@+id/view_activity_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -49,9 +50,7 @@
             app:marginBottomB="45dp"
             app:alphaA="1"
             app:alphaB="0"
-            app:alphaTransitionFactor="1.75"
-            android:text="TitleeeTitleeeTitl\neeeTitleeeTitleeeTit\nleeeTitleeeTitleee"
-            android:textSize="22sp" />
+            app:alphaTransitionFactor="1.75"/>
 
         <View
             android:id="@+id/view_activity_right_icon"

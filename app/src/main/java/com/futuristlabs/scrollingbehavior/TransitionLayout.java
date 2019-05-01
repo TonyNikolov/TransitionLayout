@@ -52,6 +52,7 @@ public class TransitionLayout extends FrameLayout {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
         maxHeight = Math.max(maxHeight, getMeasuredHeight());
+        setMinimumHeight(Math.min(getMinimumHeight(), getMeasuredHeight()));
     }
 
     @Override
@@ -160,6 +161,10 @@ public class TransitionLayout extends FrameLayout {
                 float currentAlpha = calculateProgressForvalues(alphaA, alphaB, baseProgress, params.getAlphaTransitionFactor());
                 child.setAlpha(currentAlpha);
             }
+
+            if (child instanceof TransitionLayout) {
+                ((TransitionLayout) child).prepare();
+            }
         }
     }
 
@@ -181,11 +186,28 @@ public class TransitionLayout extends FrameLayout {
     public float getHeightTransitionProgress() {
         ViewGroup.LayoutParams params = getLayoutParams();
 
-        float minHeight = getMinimumHeight();
-        float maxHeight = getMaxHeight();
-        float currentHeight = params.height;
+        if (params instanceof TransitionLayout.LayoutParams) {
+            int heightA = ((LayoutParams) params).getHeightA();
+            int heightB = ((LayoutParams) params).getHeightB();
+            int currentHeight = params.height;
 
-        return 1 - ((currentHeight - minHeight) / (maxHeight - minHeight));
+            if (heightA > heightB) {
+                float maxDifference =  Math.abs(heightA - heightB);
+                float currentProgress = heightA -currentHeight;
+                return currentProgress / maxDifference;
+            } else {
+                // increasing
+                float maxDifference =  Math.abs(heightA - heightB);
+                float currentProgress = currentHeight - heightA;
+                return currentProgress / maxDifference;
+            }
+        } else {
+            float minHeight = getMinimumHeight();
+            float maxHeight = getMaxHeight();
+            float currentHeight = params.height;
+
+            return 1 - ((currentHeight - minHeight) / (maxHeight - minHeight));
+        }
     }
 
     private int calculateProgressForValues(int valueA, int valueB, float baseProgress, float transitionFactor) {
