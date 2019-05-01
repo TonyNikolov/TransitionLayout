@@ -57,6 +57,7 @@ public class TransitionLayout extends FrameLayout {
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        prepare();
         super.onLayout(changed, left, top, right, bottom);
 
         if (listener != null) {
@@ -86,7 +87,7 @@ public class TransitionLayout extends FrameLayout {
 
     @Override
     public void setLayoutParams(ViewGroup.LayoutParams params) {
-        prepare();
+//        prepare();
         super.setLayoutParams(params);
     }
 
@@ -162,9 +163,9 @@ public class TransitionLayout extends FrameLayout {
                 child.setAlpha(currentAlpha);
             }
 
-            if (child instanceof TransitionLayout) {
-                ((TransitionLayout) child).prepare();
-            }
+//            if (child instanceof TransitionLayout) {
+//                ((TransitionLayout) child).prepare();
+//            }
         }
     }
 
@@ -182,6 +183,7 @@ public class TransitionLayout extends FrameLayout {
             default: return 1F;
         }
     }
+
 
     public float getHeightTransitionProgress() {
         ViewGroup.LayoutParams params = getLayoutParams();
